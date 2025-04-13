@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+.active {
+    color: rgb(12, 226, 91);
+    text-decoration: underline;
+    text-decoration-color: rgb(12, 226, 91);
+    text-decoration-thickness: 5px; /* আপনি চাইলে 4px বা 5px করতে পারেন */
+  }

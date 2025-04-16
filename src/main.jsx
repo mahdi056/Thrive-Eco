@@ -15,6 +15,16 @@ import Products from './Components/Products';
 import SignUp from './Components/SignUp';
 import Login from './Components/Login';
 import AuthProvider from './Components/Provider/AuthProvider';
+import EcoTech from './Components/EcoTech';
+import EcoHome from './Components/EcoHome';
+import SustainableFashion from './Components/SustainableFashion';
+import GreenBeauty from './Components/GreenBeauty';
+import OrganicFood from './Components/OrganicFood';
+import GreenBeautyDetails from './Components/GreenBeautyDetails';
+import EtDetails from './Components/EtDetails';
+import EcoHomeDetails from './Components/EcoHomeDetails';
+import SustainableFashionDetails from './Components/SustainableFashionDetails';
+import OrganicFoodDetails from './Components/OrganicFoodDetails';
 
 
 const router = createBrowserRouter([
@@ -50,7 +60,48 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login></Login>
+      },
+      {
+        path: '/eco-tech',
+        element: <EcoTech></EcoTech>
+      },
+      {
+        path: '/eco-tech/:id',
+        element: <EtDetails></EtDetails>
+      },
+      {
+        path: '/eco-home',
+        element: <EcoHome></EcoHome>
+      },
+      {
+        path: '/eco-home/:id',
+        element: <EcoHomeDetails></EcoHomeDetails>
+      },
+      {
+        path: '/sustainable-fashion',
+        element: <SustainableFashion></SustainableFashion>
+      },
+      {
+        path: '/sustainable-fashion/:id',
+        element: <SustainableFashionDetails></SustainableFashionDetails>
+      },
+      {
+        path: '/green-beauty',
+        element: <GreenBeauty></GreenBeauty>
+      },
+      {
+        path: '/green-beauty/:id',
+        element: <GreenBeautyDetails></GreenBeautyDetails>
+      },
+      {
+        path: '/organic-food',
+        element: <OrganicFood></OrganicFood>
+      },
+      {
+        path: '/organic-food/:id',
+        element: <OrganicFoodDetails></OrganicFoodDetails>
       }
+
            
     ]
   },

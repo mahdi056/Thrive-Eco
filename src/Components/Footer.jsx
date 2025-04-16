@@ -37,7 +37,7 @@ const Footer = () => {
                         <li>Sustainable Fashion</li>
                         <li>Green Beauty</li>
                         <li>Organic Food</li>
-                        <li>Eco Lifestyle</li>
+                        
                     </ul>
                 </div>
 

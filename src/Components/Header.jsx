@@ -34,7 +34,7 @@ const Header = () => {
                                     <li><NavLink to="/sustainable-fashion">Sustainable Fashion</NavLink></li>
                                     <li><NavLink to="/green-beauty">Green Beauty</NavLink></li>
                                     <li><NavLink to="/organic-food">Organic Food</NavLink></li>
-                                    <li><NavLink to="/eco-lifestyle">Eco Lifestyle</NavLink></li>
+                                    
                                 </ul>
                             </details>
                         </li>
@@ -83,7 +83,7 @@ const Header = () => {
                                         <li><NavLink to="/sustainable-fashion">Sustainable Fashion</NavLink></li>
                                         <li><NavLink to="/green-beauty">Green Beauty</NavLink></li>
                                         <li><NavLink to="/organic-food">Organic Food</NavLink></li>
-                                        <li><NavLink to="/eco-lifestyle">Eco Lifestyle</NavLink></li>
+                                      
                                     </ul>
                                 </details>
                             </li>

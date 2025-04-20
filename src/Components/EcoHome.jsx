@@ -12,7 +12,7 @@ const EcoHome = () => {
     axios
       .get("http://localhost:5000/eco-home")
       .then((res) => { 
-        console.log(res.data);
+        // console.log(res.data);
         setEcoHome(res.data)})
       .catch((error) => {
         console.error("Error fetching data", error);

@@ -43,7 +43,7 @@ const Header = () => {
                         <li><NavLink to="/blog">Blog</NavLink></li>
 
                         {
-                            user ? (<li><NavLink to="/signup">Dashboard</NavLink></li>)
+                            user ? (<li><NavLink to="/cart">Dashboard</NavLink></li>)
                             :
                             (<li><NavLink to="/signup">Sign Up</NavLink></li>)
                         }
@@ -90,7 +90,11 @@ const Header = () => {
                             <li><NavLink to="/about">About Us</NavLink></li>
                             <li><NavLink to="/contact">Contact Us</NavLink></li>
                             <li><NavLink to="/blog">Blog</NavLink></li>
-                            <li><NavLink to="/signup">Sign Up</NavLink></li>
+                            {
+                            user ? (<li><NavLink to="/cart">Dashboard</NavLink></li>)
+                            :
+                            (<li><NavLink to="/signup">Sign Up</NavLink></li>)
+                        }
                             <li><NavLink to="/login">Login</NavLink></li>
                         </ul>
                     </div>

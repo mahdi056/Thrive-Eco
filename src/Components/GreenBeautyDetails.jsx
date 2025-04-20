@@ -1,29 +1,39 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router";
 import { FiShoppingCart } from "react-icons/fi";
+import { CartContext } from "./Provider/CartProvider";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const GreenBeautyDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  // console.log(id);
+  const { addToCart } = useContext(CartContext);
+
   useEffect(() => {
     axios
       .get(`http://localhost:5000/green-beauty/${id}`)
-      .then((res) =>{
-        // console.log(res.data);
-         setProduct(res.data)})
+      .then((res) => setProduct(res.data))
       .catch((error) => console.error("Error fetching details", error));
   }, [id]);
 
-  if (!product) return <div className="text-center py-10">
-  <span className="loading loading-spinner text-success"></span>
-</div>;
+  const handleAddToCart = () => {
+    addToCart(product);
+    toast.success(`${product.name} added to cart!`);
+  };
 
-
+  if (!product)
+    return (
+      <div className="text-center py-10">
+        <span className="loading loading-spinner text-success"></span>
+      </div>
+    );
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10 bg-white shadow-lg rounded-xl mb-12 mt-12">
+      <ToastContainer position="top-center" autoClose={2000} />
+
       <img
         src={product.image}
         alt={product.name}
@@ -34,18 +44,19 @@ const GreenBeautyDetails = () => {
       <p className="text-lg font-semibold text-green-700 mb-2">
         Price: {product.price} BDT
       </p>
-      
+
       <p className="text-gray-600 mb-1">
         <span className="font-medium">Category:</span> {product.category}
       </p>
-      
+
       <p className="text-gray-600">
-        <span className="font-medium"></span>{" "}
         {product.available ? "In Stock" : "Out of Stock"}
       </p>
 
       <div className="flex gap-2 mt-4">
-        <button className="btn btn-success">Add To Cart <FiShoppingCart></FiShoppingCart></button>
+        <button onClick={handleAddToCart} className="btn btn-success">
+          Add To Cart <FiShoppingCart />
+        </button>
         <Link to="/green-beauty">
           <button className="btn btn-info">Back to products</button>
         </Link>

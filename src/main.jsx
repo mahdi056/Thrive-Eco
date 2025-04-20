@@ -25,13 +25,15 @@ import EtDetails from './Components/EtDetails';
 import EcoHomeDetails from './Components/EcoHomeDetails';
 import SustainableFashionDetails from './Components/SustainableFashionDetails';
 import OrganicFoodDetails from './Components/OrganicFoodDetails';
+import CartProvider from './Components/Provider/CartProvider';
+import Cart from './Components/Cart';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    children:[
+    children: [
       {
         path: '/',
         index: true,
@@ -100,9 +102,13 @@ const router = createBrowserRouter([
       {
         path: '/organic-food/:id',
         element: <OrganicFoodDetails></OrganicFoodDetails>
+      },
+      {
+        path: '/cart',
+        element: <Cart></Cart>
       }
 
-           
+
     ]
   },
 ]);
@@ -110,7 +116,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-    <RouterProvider router={router} />
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
     </AuthProvider>
   </StrictMode>,
 )

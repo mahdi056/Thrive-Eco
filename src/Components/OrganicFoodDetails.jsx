@@ -1,13 +1,15 @@
-
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router";
-
 import { FiShoppingCart } from "react-icons/fi";
+import { CartContext } from "./Provider/CartProvider";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const OrganicFoodDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     axios
@@ -17,6 +19,11 @@ const OrganicFoodDetails = () => {
         console.error("Error fetching organic food details", error)
       );
   }, [id]);
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    toast.success(`${product.name} added to cart!`);
+  };
 
   if (!product) {
     return (
@@ -28,6 +35,8 @@ const OrganicFoodDetails = () => {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10 bg-white shadow-lg rounded-xl mb-12 mt-12">
+      <ToastContainer position="top-center" autoClose={2000} />
+
       <img
         src={product.image}
         alt={product.name}
@@ -48,7 +57,9 @@ const OrganicFoodDetails = () => {
       </p>
 
       <div className="flex gap-2 mt-4">
-        <button className="btn btn-success">Add To Cart <FiShoppingCart></FiShoppingCart></button>
+        <button onClick={handleAddToCart} className="btn btn-success">
+          Add To Cart <FiShoppingCart />
+        </button>
         <Link to="/organic-food">
           <button className="btn btn-info">Back to products</button>
         </Link>

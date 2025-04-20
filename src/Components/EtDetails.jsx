@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router";
 import { FiShoppingCart } from "react-icons/fi";
+import { CartContext } from "./Provider/CartProvider";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const EcoTechDetails = () => {
+const EtDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     axios
@@ -13,6 +17,11 @@ const EcoTechDetails = () => {
       .then((res) => setProduct(res.data))
       .catch((error) => console.error("Error fetching eco-tech details", error));
   }, [id]);
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    toast.success(`${product.name} added to cart!`);
+  };
 
   if (!product) {
     return (
@@ -24,6 +33,8 @@ const EcoTechDetails = () => {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10 bg-white shadow-lg rounded-xl mb-12 mt-12">
+      <ToastContainer position="top-center" autoClose={2000} />
+
       <img
         src={product.image}
         alt={product.name}
@@ -44,12 +55,15 @@ const EcoTechDetails = () => {
       </p>
 
       <div className="flex gap-2 mt-4">
-      <button className="btn btn-success">Add To Cart <FiShoppingCart></FiShoppingCart></button>
-      <Link to='/eco-tech'><button className="btn btn-info">Back to products</button></Link>
+        <button onClick={handleAddToCart} className="btn btn-success">
+          Add To Cart <FiShoppingCart />
+        </button>
+        <Link to="/eco-tech">
+          <button className="btn btn-info">Back to products</button>
+        </Link>
       </div>
-
     </div>
   );
 };
 
-export default EcoTechDetails;
+export default EtDetails;

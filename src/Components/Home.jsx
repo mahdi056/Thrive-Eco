@@ -21,7 +21,7 @@ const Home = () => {
 
                 <div className="flex justify-center">
                     <Link to='/products'>
-                        <button className="btn btn-success">Explore</button>
+                        <button className="btn btn-success">Let's Explore</button>
                     </Link>
                 </div>
 

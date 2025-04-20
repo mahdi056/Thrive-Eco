@@ -5,33 +5,29 @@ const Products = () => {
         {
             name: "Eco Tech",
             description: "Sustainable gadgets and energy-efficient electronics.",
-            route: "/products/eco-tech",
+            route: "/eco-tech",
         },
         {
             name: "Eco Home",
             description: "Eco-friendly home goods for greener living.",
-            route: "/products/eco-home",
+            route: "/eco-home",
         },
         {
             name: "Sustainable Fashion",
             description: "Stylish clothing made with sustainable materials.",
-            route: "/products/sustainable-fashion",
+            route: "/sustainable-fashion",
         },
         {
             name: "Green Beauty",
             description: "Natural and cruelty-free skincare and cosmetics.",
-            route: "/products/green-beauty",
+            route: "/green-beauty",
         },
         {
             name: "Organic Food",
             description: "Healthy and organic food items for conscious living.",
-            route: "/products/organic-food",
+            route: "/organic-food",
         },
-        {
-            name: "Eco Lifestyle",
-            description: "Daily essentials and lifestyle items that are eco-conscious.",
-            route: "/products/eco-lifestyle",
-        },
+       
     ];
 
     return (
